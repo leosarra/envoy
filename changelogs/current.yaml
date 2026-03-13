@@ -105,6 +105,13 @@ new_features:
     have been tried, the selection pool resets so that any cluster may be chosen again. This enables
     filters to implement per-attempt cluster failover across weighted clusters without replacing the
     entire route.
+- area: overload_manager
+  change: |
+    Added the new HTTP priority load shed filter
+    :ref:`envoy.filters.http.priority_load_shed
+    <extension_envoy.filters.http.priority_load_shed>`, which maps request header integer ranges to
+    overload manager load shed points. It supports fallback shedding via a default load shed point
+    and optional strict rejection for missing or invalid priority headers.
 - area: tcp_proxy
   change: |
     Added :ref:`check_drain_close
